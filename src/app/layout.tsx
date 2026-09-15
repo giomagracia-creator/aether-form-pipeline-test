@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Form Pipeline Test — Aether Automations",
   description:
-    "Teaching / pipeline test page proving GitHub → Vercel → Formspree → email.",
+    "Teaching / pipeline test page — demo form UI only (not wired to email).",
 };
 
 export default function RootLayout({

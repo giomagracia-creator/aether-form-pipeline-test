@@ -1,42 +1,20 @@
 # Aether Form Pipeline Test
 
-Minimal Next.js (App Router) + TypeScript + Tailwind site that **only** proves:
+Minimal Next.js (App Router) + TypeScript + Tailwind site for teaching the
+deploy path. The contact form is **demo-only** (UI mock).
 
-**GitHub → Vercel → Form (Formspree) → Email**
-
-Teaching / pipeline demo — not a marketing site.
+**GitHub → Vercel → Form UI** (email wiring later)
 
 ## What it does
 
-- Single page labeled as a pipeline test
+- Single page labeled **demo — not wired**
 - Contact form: name, email, message
-- Submits to Formspree using `NEXT_PUBLIC_FORMSPREE_FORM_ID`
-- Success and error UI states
-- If the env var is missing, shows a clear “needs configuration” message
+- Client-only fake success on submit — **no** Formspree / Resend / email API
+- No `NEXT_PUBLIC_FORMSPREE_FORM_ID` required
 
 ## Setup
 
-### 1. Formspree
-
-1. Create a form at [formspree.io](https://formspree.io)
-2. Configure delivery to **giomagracia@gmail.com**
-3. Copy the form ID from the endpoint (`https://formspree.io/f/XXXXXX` → `XXXXXX`)
-
-### 2. Environment
-
-Copy the example env file and set the form ID:
-
-```bash
-cp .env.example .env.local
-```
-
-```
-NEXT_PUBLIC_FORMSPREE_FORM_ID=your_formspree_form_id
-```
-
-On Vercel: Project → Settings → Environment Variables → add the same key for Production (and Preview if desired). Redeploy after changing it.
-
-### 3. Local run
+### Local run
 
 ```bash
 npm install
@@ -45,19 +23,26 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-### 4. Build check
+### Build check
 
 ```bash
 npm run build
 ```
+
+### Environment
+
+No secrets required for the demo form. `.env.example` documents that email is
+not live. When you wire real delivery later, use **Formspree** or **Resend**
+and add env vars then (never commit real secrets). For a real message now:
+**mailto:giomagracia@gmail.com**.
 
 ## Stack
 
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- Formspree (client-side POST)
+- Demo form UI only (no email backend yet)
 
 ## Footer
 
-Aether Automations — form pipeline test (demo)
+Aether Automations — form pipeline test (demo — not wired)
